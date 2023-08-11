@@ -38,8 +38,8 @@ end
 class KnightNode
   attr_accessor :position, :previous, :visited
 
-  def initialize(column = nil, row = nil)
-    @position = [column, row]
+  def initialize(row = nil, column = nil)
+    @position = [row, column]
     @previous = []
     @visited = false
   end
@@ -50,6 +50,4 @@ p test.knight_moves([0, 0], [2, 1])
 
 # knight moves = tree children
 # use breadth first search algorythm
-# use to find shortest path  between start and end position of knight
-
 # use recursion
