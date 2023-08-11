@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-# class for the game tree
-class GameTree
-  def initialize
-    @board = Array.new(8) { Array.new(8) }
+# class to represent knight moves
+class Knight
+  attr_accessor :position, :previous
+
+  def initialize(position)
+    @position = position
+    @previous = [] # children
   end
 
-  def knight_moves(start, finish)
-    return if start == finish
-
-    knight = KnightNode.new(start)
-    queue = [knight]
-
-    knight.create_move_list.each { |move| queue.push(move) }
+  def create_move_list
+    moves = [[1, 2], [1, -2], [2, -1], [2, 1], [-1, 2], [-1, -2], [-2, -1], [-2, 1]]
+    moves.map! { |move| [position[0] + move[0], position[1] + move[1]] }
+    moves.select { |move| (0...8).include?(move[0]) && (0...8).include?(move[1]) }
   end
 
   def print
@@ -22,22 +22,14 @@ class GameTree
   end
 end
 
-# class for node
-class KnightNode
-  attr_accessor :position, :previous, :visited
+def knight_moves(start, finish)
+  return if start == finish
 
-  def initialize(position)
-    @position = position
-    @previous = [] # children
-    @visited = nil # parent
-  end
+  knight = Knight.new(start)
+  queue = [knight]
 
-  def create_move_list
-    moves = [[1, 2], [1, -2], [2, -1], [2, 1], [-1, 2], [-1, -2], [-2, -1], [-2, 1]]
-    moves.map! { |move| [position[0] + move[0], position[1] + move[1]] }
-    moves.select { |move| (0...8).include?(move[0]) && (0...8).include?(move[1]) }
-  end
+  knight.create_move_list.each { |move| queue.push(move) }
+  p queue
 end
 
-test = GameTree.new
-p test.knight_moves([3, 3], [4, 2])
+knight_moves([3, 3], [4, 2])
