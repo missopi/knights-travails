@@ -30,7 +30,7 @@ class GameTree
   end
 
   def create_move_list(array)
-    # [array.previous]
+    # array.previous
   end
 end
 
@@ -40,8 +40,8 @@ class KnightNode
 
   def initialize(row = nil, column = nil)
     @position = [row, column]
-    @previous = [] # parent
-    @visited = nil # children
+    @previous = [] # children
+    @visited = nil # parent
   end
 end
 
