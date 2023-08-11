@@ -1,20 +1,21 @@
 # frozen_string_literal: true
 
 class GameTree
-    KNIGHT_POSSIBLE_MOVES = [[x+1, y+2], [x+1, y-2], [x+2, y-1], [x+2, y+1], 
-        [x-1, y+2], [x-1, y-2], [x-2, y-1], [x-2, y+1]]
+    # KNIGHT_POSSIBLE_MOVES = [[x+1, y+2], [x+1, y-2], [x+2, y-1], [x+2, y+1], 
+    #    [x-1, y+2], [x-1, y-2], [x-2, y-1], [x-2, y+1]]
 
     def initialize
     end
 
     def create_board
-        @board = Array.new
+        @board = Array.new(8) { Array.new(8) }
     end
 
     def valid_move
     end
 
-    def knight_moves([x, y])
+    def knight_moves(x, y)
+        knight = KnightNode.new
     end
 
     def number_of_moves
@@ -27,9 +28,11 @@ class GameTree
 end
 
 class KnightNode
-    def initialize
-    end
+    
 end
+
+chess = GameTree.new
+p chess.create_board
 
 # create knight to 'move' around board
 # knight moves = tree children
