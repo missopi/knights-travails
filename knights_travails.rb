@@ -15,16 +15,22 @@ class GameTree
 
   def knight_moves(start, finish)
     knight = KnightNode.new(start)
-    # create tree to finish position
-    # record path to finish position (move list)
-    # print result
+    queue = [knight]
+
+    # until knight.position == finish
+    #   create_move_list(finish)
+    #   queue.shift
+    # end
+
+    # path = 
+
     # puts "You made it in #{path.size} moves! Here's your path: "
     # puts full path of moves from create_move_list method
     # path.each
   end
 
-  def create_move_list
-    # create array of previous moves made
+  def create_move_list(array)
+    # [array.previous]
   end
 end
 
@@ -39,8 +45,8 @@ class KnightNode
   end
 end
 
-p GameTree.new
-
+test = GameTree.new
+p test.knight_moves([0, 0], [2, 1])
 
 # knight moves = tree children
 # use breadth first search algorythm
