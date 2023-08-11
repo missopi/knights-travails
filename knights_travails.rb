@@ -9,8 +9,9 @@ class GameTree
     @board = Array.new(8) { Array.new(8) }
   end
 
-  def valid_move
-    # return true if the move is still on the game board
+  def valid_move?(start, finish)
+    return true if start[0].between?(0, 7) && start[1].between?(0, 7)
+    return true if finish[0].between?(0, 7) && finish[1].between?(0, 7)
   end
 
   def knight_moves(start, finish)
@@ -29,9 +30,6 @@ class GameTree
     # path.each
   end
 
-  def create_move_list(array)
-    # array.previous
-  end
 end
 
 # class for node
@@ -43,6 +41,7 @@ class KnightNode
     @previous = [] # children
     @visited = nil # parent
   end
+
 end
 
 test = GameTree.new
