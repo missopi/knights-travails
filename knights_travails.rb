@@ -2,21 +2,11 @@
 
 # class for the game tree
 class GameTree
-  
-
   def initialize
     @board = Array.new(8) { Array.new(8) }
   end
 
-  def valid_move?(start, finish)
-    return true if start[0].between?(0, 7) && start[1].between?(0, 7)
-    return true if finish[0].between?(0, 7) && finish[1].between?(0, 7)
-  end
-
   def knight_moves(start, finish)
-    valid = valid_move?(start, finish)
-    return unless valid
-
     queue = [KnightNode.new(start)]
 
     # until knight.position == finish
@@ -50,11 +40,15 @@ class KnightNode
     end
     move_list
   end
+
+  def valid_move?(start, finish)
+    return true if start[0].between?(0, 7) && start[1].between?(0, 7)
+    return true if finish[0].between?(0, 7) && finish[1].between?(0, 7)
+  end
 end
 
 test = GameTree.new
 p test.knight_moves([0, 0], [2, 1])
-# test.create_move_list
 
 # knight moves = tree children
 # use breadth first search algorythm
