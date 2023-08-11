@@ -17,33 +17,26 @@ class GameTree
   end
 
   def knight_moves(start, finish)
+    # create new knight node at start position
+    # create tree to finish position
+    # record path to finish position (move list)
+    # print result
+    # puts "You made it in #{path.size} moves! Here's your path: "
+    # puts full path of moves from create_move_list method
+    # path.each
   end
 
   def create_move_list
     # create array of previous moves made
-  end
-
-  def number_of_moves
-    # add up number of elements in move list
-    # moves = integer
-  end
-
-  def print_result
-    puts "You made it in #{moves} moves! Here's your path: "
-    # puts full path of moves from create_move_list method
-    # [3,3]
-    # [4,5]
-    # [2,4]
-    # [4,3]
   end
 end
 
 # class for node
 class KnightNode
   def initialize
-    # record positiopn knight is in [x, y]
+    # record position knight is in [x, y]
     # record previous node which it came from (for path)
-    # record if node has position has been visited before
+    # record if node position has been visited before
   end
 end
 
