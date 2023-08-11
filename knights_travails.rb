@@ -6,9 +6,6 @@ class GameTree
                     [-2, -1], [-2, 1]].freeze
 
   def initialize
-  end
-
-  def create_board
     @board = Array.new(8) { Array.new(8) }
   end
 
@@ -40,8 +37,8 @@ class KnightNode
   end
 end
 
-chess = GameTree.new
-p chess.create_board
+p GameTree.new
+
 
 # knight moves = tree children
 # use breadth first search algorythm
