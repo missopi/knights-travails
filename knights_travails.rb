@@ -15,7 +15,7 @@ class GameTree
   end
 
   def knight_moves(start, finish)
-    valid = valid_move(start, finish)
+    valid = valid_move?(start, finish)
     return unless valid
 
     knight = KnightNode.new(start)
@@ -47,7 +47,8 @@ class KnightNode
 end
 
 test = GameTree.new
-p test.knight_moves([0, 0], [2, 1])
+# test.knight_moves([0, 0], [2, 1])
+test.create_move_list
 
 # knight moves = tree children
 # use breadth first search algorythm
