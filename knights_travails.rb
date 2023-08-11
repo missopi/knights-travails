@@ -35,7 +35,7 @@ class KnightNode
   def create_move_list
     moves = [[1, 2], [1, -2], [2, -1], [2, 1], [-1, 2], [-1, -2], [-2, -1], [-2, 1]]
     moves.map! { |move| [position[0] + move[0], position[1] + move[1]] }
-    moves.select { |move| (0...7).include?(move[0]) && (0...7).include?(move[1]) }
+    moves.select { |move| (0...8).include?(move[0]) && (0...8).include?(move[1]) }
   end
 end
 
