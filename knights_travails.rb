@@ -24,8 +24,6 @@ end
 
 # class for node
 class KnightNode
-  POSSIBLE_MOVES = [[1, 2], [1, -2], [2, -1], [2, 1], [-1, 2], [-1, -2],
-                    [-2, -1], [-2, 1]].freeze
   attr_accessor :position, :previous, :visited
 
   def initialize(position)
@@ -35,22 +33,11 @@ class KnightNode
   end
 
   def create_move_list
-    move_list = []
-    POSSIBLE_MOVES.each do |move|
-      new_move = [position[0] + move[0], position[1] + move[1]]
-      move_list.push(new_move) if valid_move?(new_move)
-    end
-    move_list
-  end
-
-  def valid_move?(move)
-    return true if move[0].between?(0, 7) && move[1].between?(0, 7)
+    moves = [[1, 2], [1, -2], [2, -1], [2, 1], [-1, 2], [-1, -2], [-2, -1], [-2, 1]]
+    moves.map! { |move| [position[0] + move[0], position[1] + move[1]] }
+    moves.select { |move| (0...8).include?(move[0]) && (0...8).include?(move[1]) }
   end
 end
 
 test = GameTree.new
 p test.knight_moves([3, 3], [4, 2])
-
-# knight moves = tree children
-# use breadth first search algorythm
-# use recursion
