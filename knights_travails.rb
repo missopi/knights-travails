@@ -16,6 +16,14 @@ class GameTree
 
     def knight_moves([x, y])
     end
+
+    def number_of_moves
+    end
+
+    def print_result
+        puts "You made it in #{} moves! Here's your path: "
+        puts "#{knight_moves([x, y])}"
+    end
 end
 
 class KnightNode
