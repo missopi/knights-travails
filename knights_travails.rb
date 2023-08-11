@@ -14,7 +14,7 @@ class GameTree
   end
 
   def knight_moves(start, finish)
-    knight = KnightNode.new(start)
+    start_knight = KnightNode.new(start)
     queue = [knight]
 
     # until knight.position == finish
@@ -40,8 +40,8 @@ class KnightNode
 
   def initialize(row = nil, column = nil)
     @position = [row, column]
-    @previous = []
-    @visited = false
+    @previous = [] # parent
+    @visited = nil # children
   end
 end
 
