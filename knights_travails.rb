@@ -7,9 +7,12 @@ class GameTree
   end
 
   def knight_moves(start, finish)
+    return if start == finish
+
     knight = KnightNode.new(start)
     queue = [knight]
 
+    knight.create_move_list.each { |move| queue.push(move) }
   end
 
   def print
@@ -46,7 +49,7 @@ class KnightNode
 end
 
 test = GameTree.new
-p test.knight_moves([0, 0], [2, 1])
+p test.knight_moves([3, 3], [4, 2])
 
 # knight moves = tree children
 # use breadth first search algorythm
