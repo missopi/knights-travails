@@ -14,7 +14,7 @@ class GameTree
   end
 
   def knight_moves(start, finish)
-    # create new knight node at start position
+    knight = KnightNode.new(start)
     # create tree to finish position
     # record path to finish position (move list)
     # print result
@@ -30,10 +30,12 @@ end
 
 # class for node
 class KnightNode
-  def initialize
-    # record position knight is in [x, y]
-    # record previous node which it came from (for path)
-    # record if node position has been visited before
+  attr_accessor :position, :previous, :visited
+
+  def initialize(column = nil, row = nil)
+    @position = [column, row]
+    @previous = []
+    @visited = false
   end
 end
 
