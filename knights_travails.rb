@@ -15,7 +15,10 @@ class GameTree
   end
 
   def knight_moves(start, finish)
-    start_knight = KnightNode.new(start)
+    valid = valid_move(start, finish)
+    return unless valid
+
+    knight = KnightNode.new(start)
     queue = [knight]
 
     # until knight.position == finish
@@ -41,7 +44,6 @@ class KnightNode
     @previous = [] # children
     @visited = nil # parent
   end
-
 end
 
 test = GameTree.new
