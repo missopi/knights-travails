@@ -2,17 +2,18 @@
 
 # class to represent knight moves
 class Knight
+  MOVES = [[1, 2], [1, -2], [2, -1], [2, 1], [-1, 2], [-1, -2], [-2, -1], [-2, 1]].freeze
   attr_accessor :position, :previous
 
-  def initialize(position)
+  def initialize(position, previous = nil)
     @position = position
-    @previous = [] # children
+    @previous = previous
   end
 
   def create_move_list
-    moves = [[1, 2], [1, -2], [2, -1], [2, 1], [-1, 2], [-1, -2], [-2, -1], [-2, 1]]
-    moves.map! { |move| [position[0] + move[0], position[1] + move[1]] }
-    moves.select { |move| (0...8).include?(move[0]) && (0...8).include?(move[1]) }
+    MOVES.map { |move| [position[0] + move[0], position[1] + move[1]] }
+    MOVES.select { |move| (0...8).include?(move[0]) && (0...8).include?(move[1]) }
+    MOVES.map { |move| Knight.new(move, self) }
   end
 
   def print
@@ -29,6 +30,7 @@ def knight_moves(start, finish)
   queue = [knight]
 
   knight.create_move_list.each { |move| queue.push(move) }
+  
   p queue
 end
 
