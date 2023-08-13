@@ -30,7 +30,7 @@ class Knight
 
   def print(path)
     puts "You made it in #{path.size - 1} moves! Here's your path: "
-    p path.reverse
+    path.reverse.each { |move| puts move.to_s }
   end
 end
 
