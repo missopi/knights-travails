@@ -30,7 +30,15 @@ class Knight
 
   def knight_moves(start, finish)
     knight = build_tree(start, finish)
-    
+    path = [] # array for moves made by knight
+
+    until knight.position == start # retracing steps to record route of knight's positions
+      path.push(knight.position)
+      knight = knight.previous
+    end
+
+    path.push(knight.position)
+    path.reverse
   end
 
   def print
