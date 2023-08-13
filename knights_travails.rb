@@ -38,17 +38,16 @@ class Knight
     end
 
     path.push(knight.position)
-    path.reverse
+    print(path)
   end
 
-  def print
-    # puts "You made it in #{path.size} moves! Here's your path: "
-    # puts full path of moves from create_move_list method
-    # path.each
+  def print(path)
+    puts "You made it in #{path.size - 1} moves! Here's your path: "
+    p path.reverse
   end
 end
 
 knight = Knight.new
-p knight.knight_moves([3, 2], [7, 4])
-p knight.knight_moves([1, 6], [3, 3])
-p knight.knight_moves([2, 4], [6, 7])
+knight.knight_moves([3, 2], [7, 4])
+knight.knight_moves([1, 6], [3, 3])
+knight.knight_moves([2, 4], [6, 7])
