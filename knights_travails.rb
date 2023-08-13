@@ -49,4 +49,6 @@ class Knight
 end
 
 knight = Knight.new
-p knight.knight_moves([3, 3], [7, 2])
+p knight.knight_moves([3, 2], [7, 4])
+p knight.knight_moves([1, 6], [3, 3])
+p knight.knight_moves([2, 4], [6, 7])
