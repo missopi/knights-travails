@@ -12,6 +12,7 @@ class Knight
   def create_move_list
     moves = [[1, 2], [1, -2], [2, -1], [2, 1], [-1, 2], [-1, -2], [-2, -1], [-2, 1]] # possible moves knight can make
     moves.map! { |move| [position[0] + move[0], position[1] + move[1]] }
+    moves.keep_if { |move| move[0].between?(0, 7) && move[1].between?(0, 7) }
   end
 
   def build_tree(start, finish)
