@@ -4,7 +4,7 @@
 class Knight
   attr_accessor :position, :previous
 
-  def initialize(position, previous = nil)
+  def initialize(position = nil, previous = nil)
     @position = position
     @previous = previous
   end
@@ -28,6 +28,11 @@ class Knight
     knight # return queue of nodes with moves made from start to finish position
   end
 
+  def knight_moves(start, finish)
+    knight = build_tree(start, finish)
+    
+  end
+
   def print
     # puts "You made it in #{path.size} moves! Here's your path: "
     # puts full path of moves from create_move_list method
@@ -35,8 +40,5 @@ class Knight
   end
 end
 
-def knight_moves(start, finish) end
-
-
-test = Knight.new(nil)
-p test.build_tree([3, 3], [7, 2])
+knight = Knight.new
+p knight.knight_moves([3, 3], [7, 2])
