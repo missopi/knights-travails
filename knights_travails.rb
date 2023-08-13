@@ -28,26 +28,26 @@ class Knight
     knight # return queue of nodes with moves made from start to finish position
   end
 
-  def knight_moves(start, finish)
-    knight = build_tree(start, finish)
-    path = [] # array for moves made by knight
-
-    until knight.position == start # retracing steps to record route of knight's positions
-      path.push(knight.position)
-      knight = knight.previous
-    end
-
-    path.push(knight.position)
-    print(path)
-  end
-
   def print(path)
     puts "You made it in #{path.size - 1} moves! Here's your path: "
     p path.reverse
   end
 end
 
-knight = Knight.new
-knight.knight_moves([3, 2], [7, 4])
-knight.knight_moves([1, 6], [3, 3])
-knight.knight_moves([2, 4], [6, 7])
+def knight_moves(start, finish)
+  knight = Knight.new
+  knight = knight.build_tree(start, finish)
+  path = [] # array for moves made by knight
+
+  until knight.position == start # retracing steps to record route of knight's positions
+    path.push(knight.position)
+    knight = knight.previous
+  end
+
+  path.push(knight.position)
+  knight.print(path)
+end
+
+knight_moves([3, 2], [7, 4])
+knight_moves([1, 6], [3, 3])
+knight_moves([2, 4], [6, 7])
