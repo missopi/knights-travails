@@ -2,7 +2,7 @@
 
 # class to represent knight moves
 class Knight
-  MOVES = [[1, 2], [1, -2], [2, -1], [2, 1], [-1, 2], [-1, -2], [-2, -1], [-2, 1]].freeze
+  
   attr_accessor :position, :previous
 
   def initialize(position, previous = nil)
@@ -11,9 +11,10 @@ class Knight
   end
 
   def create_move_list
-    MOVES.map { |move| [position[0] + move[0], position[1] + move[1]] }
-    MOVES.select { |move| (0...8).include?(move[0]) && (0...8).include?(move[1]) }
-    MOVES.map { |move| Knight.new(move, self) }
+    moves = [[1, 2], [1, -2], [2, -1], [2, 1], [-1, 2], [-1, -2], [-2, -1], [-2, 1]]
+    moves.map! { |move| [position[0] + move[0], position[1] + move[1]] }
+    moves.select { |move| move[0].between?(1, 8) && move[1].between?(1, 8) }
+    moves.map { |move| Knight.new(move, self) }
   end
 
   def print
